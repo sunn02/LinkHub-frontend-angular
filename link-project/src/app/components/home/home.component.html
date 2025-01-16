@@ -1,0 +1,17 @@
+<div>
+    <input [(ngModel)]="tagFilter" placeholder="Filtrar por etiqueta" />
+    <button (click)="applyFilter()">Filtrar</button>
+  </div>
+  <div *ngIf="links.length; else noLinks">
+    <div *ngFor="let link of links">
+      <p><strong>Título:</strong> {{ link.title }}</p>
+      <p><strong>URL:</strong> <a [href]="link.url" target="_blank">{{ link.url }}</a></p>
+      <p><strong>Descripción:</strong> {{ link.description }}</p>
+      <p><strong>Etiquetas:</strong> {{ link.tags?.join(', ') || 'Sin etiquetas' }}</p>
+      <button (click)="viewDetails(link._id)">Ver detalles</button>
+    </div>
+  </div>
+  <ng-template #noLinks>
+    <p>No se encontraron enlaces.</p>
+  </ng-template>
+  

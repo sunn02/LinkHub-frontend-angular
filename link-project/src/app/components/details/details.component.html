@@ -1,0 +1,9 @@
+<div *ngIf="link">
+    <span>Votos: {{ link.votes }}</span>
+    <ul>
+      <li *ngFor="let comment of link.comments">
+        {{ comment.content }}
+      </li>
+    </ul>
+</div>
+  
