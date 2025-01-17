@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-home',
@@ -14,7 +17,7 @@ export class HomeComponent implements OnInit {
   links: any[] = [];
   tagFilter: string = '';
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadLinks();
@@ -33,8 +36,9 @@ export class HomeComponent implements OnInit {
     this.loadLinks();
   }
 
-  viewDetails(id:string): void{
-    console.log('ID seleccionado:', id); 
-    window.location.href = `/details/${id}`;
+  viewDetails(id: string): void {
+    console.log('ID seleccionado:', id);
+    this.router.navigate(['/details', id]);
   }
+  
 }

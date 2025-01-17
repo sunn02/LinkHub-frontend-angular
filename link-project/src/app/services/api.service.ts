@@ -19,6 +19,7 @@ export class ApiService {
     return this.http.get(`${this.API_URL}/links/${linkId}`);
   }
 
+
   getComments(linkId: string): Observable<any> {
     return this.http.get(`${this.API_URL}/comments/${linkId}`);
   }

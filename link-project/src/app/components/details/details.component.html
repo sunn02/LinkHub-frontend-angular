@@ -1,9 +1,25 @@
-<div *ngIf="link">
-    <span>Votos: {{ link.votes }}</span>
+<div>
+  <!-- Mostrar los detalles del enlace -->
+  <h2>Detalles del Enlace</h2>
+  <p><strong>Votos:</strong> {{ link?.votes || 0 }}</p>
+
+  <!-- Mostrar los comentarios -->
+  <h3>Comentarios</h3>
+  <div *ngIf="comments.length; else noComments">
     <ul>
-      <li *ngFor="let comment of link.comments">
+      <li *ngFor="let comment of comments">
         {{ comment.content }}
       </li>
     </ul>
+  </div>
+  <ng-template #noComments>
+    <p>No hay comentarios para mostrar.</p>
+  </ng-template>
+  <button (click)="handleVotes()">Votar</button>
+  <button (click)="handleAddComment(link._id)">Comentar</button>
+
+
+  <!-- <button (click)="viewDetails(link._id)">Ver detalles</button> -->
+
+
 </div>
-  
