@@ -40,5 +40,9 @@ export class HomeComponent implements OnInit {
     console.log('ID seleccionado:', id);
     this.router.navigate(['/details', id]);
   }
+
+  saveLink(): void {
+    this.router.navigate(['/save']);
+    }
   
 }

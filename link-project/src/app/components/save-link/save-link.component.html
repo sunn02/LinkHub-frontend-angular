@@ -1,1 +1,8 @@
-<p>save-link works!</p>
+<div>
+    <input type="text" [(ngModel)]="link.title" placeholder="Título del enlace" required />
+    <input type="url" [(ngModel)]="link.url" placeholder="URL del enlace" required />
+    <input type="text" [(ngModel)]="link.description" placeholder="Descripción del enlace" />
+    <input type="text" [(ngModel)]="link.tags" placeholder="Etiquetas (separadas por comas)" />
+    <button (click)="AddLink()">Guardar enlace</button>
+  </div>
+  

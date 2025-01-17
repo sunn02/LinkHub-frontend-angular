@@ -19,6 +19,7 @@ export class CommentComponent implements OnInit{
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.linkId = params['id'];
+      console.log('Link ID:', this.linkId);
     });
   }
   
