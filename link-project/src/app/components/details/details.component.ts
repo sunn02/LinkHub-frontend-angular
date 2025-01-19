@@ -14,6 +14,7 @@ export class DetailsComponent implements OnInit {
   link: any
   linkId!: string;
   comments: any[] = [];
+  newComment: string = '';
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -63,7 +64,20 @@ export class DetailsComponent implements OnInit {
   }
 
   async handleAddComment(id:string) {
-    this.router.navigate(['/comment', id]);
+    if (this.newComment.trim()) {
+      this.apiService.commentLink(this.linkId, this.newComment).subscribe(
+        response => {
+          console.log('Comentario agregado con éxito:', response);
+          this.newComment = '';
+          this.loadLinkDetails()
+        },
+        error => {
+          console.error('Error al agregar el comentario:', error);
+        }
+      );
+    } else {
+      console.error('El comentario no puede estar vacío');
+    }
   }
   
   

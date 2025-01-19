@@ -15,8 +15,11 @@
   <ng-template #noComments>
     <p>No hay comentarios para mostrar.</p>
   </ng-template>
+  <!-- <button (click)="handleAddComment(link._id)">Comentar</button> -->
+
+  <textarea [(ngModel)]="newComment" placeholder="Escribe tu comentario aquí"></textarea>
+  <button (click)="handleAddComment(link._id)">Enviar</button>
   <button (click)="handleVotes()">Votar</button>
-  <button (click)="handleAddComment(link._id)">Comentar</button>
 
 
   <!-- <button (click)="viewDetails(link._id)">Ver detalles</button> -->
