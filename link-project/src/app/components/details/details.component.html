@@ -1,7 +1,9 @@
 <div>
   <!-- Mostrar los detalles del enlace -->
-  <h2>Detalles del Enlace</h2>
+  <h2>Detalles</h2>
   <p><strong>Votos:</strong> {{ link?.votes || 0 }}</p>
+  <button (click)="handleVotes()">Votar</button>
+
 
   <!-- Mostrar los comentarios -->
   <h3>Comentarios</h3>
@@ -19,7 +21,6 @@
 
   <textarea [(ngModel)]="newComment" placeholder="Escribe tu comentario aquí"></textarea>
   <button (click)="handleAddComment(link._id)">Enviar</button>
-  <button (click)="handleVotes()">Votar</button>
 
 
   <!-- <button (click)="viewDetails(link._id)">Ver detalles</button> -->
