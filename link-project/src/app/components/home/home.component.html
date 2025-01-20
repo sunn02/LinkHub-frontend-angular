@@ -1,6 +1,5 @@
 <div>
-    <input [(ngModel)]="tagFilter" placeholder="Filtrar por etiqueta" />
-    <button (click)="applyFilter()">Filtrar</button>
+    <input [(ngModel)]="tagFilter" (ngModelChange)="applyFilter()" placeholder="Filtrar por etiqueta" />
   </div>
   <div *ngIf="links.length; else noLinks">
     <div *ngFor="let link of links">
